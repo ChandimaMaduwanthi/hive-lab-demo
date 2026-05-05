@@ -1,0 +1,10 @@
+version: "3"
+services:
+  hive-server:
+    image: bde2020/hive:2.3.2-postgresql-metastore
+    container_name: hive-server
+    ports:
+      - "10000:10000"
+      - "9870:9870"
+    environment:
+      - SERVICE_PRECONDITION=namenode:9870 datanode:9864 hive-metastore:9083
